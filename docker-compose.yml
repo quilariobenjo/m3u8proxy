@@ -12,16 +12,16 @@ services:
       - dokploy-network
     labels:
       - 'traefik.enable=true'
-      # - 'traefik.http.routers.cors-proxy.rule=Host(`m3u8.animehi-api.site`)'
-      # - 'traefik.http.routers.cors-proxy.entrypoints=web,websecure'
-      # - 'traefik.http.services.cors-proxy.loadbalancer.server.port=8082'
+      - 'traefik.http.routers.cors-proxy.rule=Host(`m3u8.animehi-api.site`)'
+      - 'traefik.http.routers.cors-proxy.entrypoints=web,websecure'
+      - 'traefik.http.services.cors-proxy.loadbalancer.server.port=8082'
 
-      # - 'traefik.http.routers.cors-proxy.tls=true'
-      # - 'traefik.http.routers.cors-proxy.tls.certresolver=le'
-      # - 'traefik.http.routers.cors-proxy-http.rule=Host(`m3u8.animehi-api.site`)'
-      # - 'traefik.http.routers.cors-proxy-http.entrypoints=web'
-      # - 'traefik.http.routers.cors-proxy-http.middlewares=redirect-to-https'
-      # - 'traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https'
+      - 'traefik.http.routers.cors-proxy.tls=true'
+      - 'traefik.http.routers.cors-proxy.tls.certresolver=le'
+      - 'traefik.http.routers.cors-proxy-http.rule=Host(`m3u8.animehi-api.site`)'
+      - 'traefik.http.routers.cors-proxy-http.entrypoints=web'
+      - 'traefik.http.routers.cors-proxy-http.middlewares=redirect-to-https'
+      - 'traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https'
 
 networks:
   dokploy-network:
