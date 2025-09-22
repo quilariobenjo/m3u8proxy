@@ -1,5 +1,5 @@
 services:
-  rust-proxy:
+  m3u8-proxy:
     build:
       context: .
       dockerfile: Dockerfile
@@ -12,15 +12,15 @@ services:
       - dokploy-network
     labels:
       - 'traefik.enable=true'
-      - 'traefik.http.routers.cors-proxy.rule=Host(`m3u8.animehi-api.site`)'
-      - 'traefik.http.routers.cors-proxy.entrypoints=web,websecure'
-      - 'traefik.http.services.cors-proxy.loadbalancer.server.port=4000'
+      - 'traefik.http.routers.m3u8-proxy.rule=Host(`m3u8.animehi-api.site`)'
+      - 'traefik.http.routers.m3u8-proxy.entrypoints=web,websecure'
+      - 'traefik.http.services.m3u8-proxy.loadbalancer.server.port=4000'
 
-      - 'traefik.http.routers.cors-proxy.tls=true'
-      - 'traefik.http.routers.cors-proxy.tls.certresolver=le'
-      - 'traefik.http.routers.cors-proxy-http.rule=Host(`m3u8.animehi-api.site`)'
-      - 'traefik.http.routers.cors-proxy-http.entrypoints=web'
-      - 'traefik.http.routers.cors-proxy-http.middlewares=redirect-to-https'
+      - 'traefik.http.routers.m3u8-proxy.tls=true'
+      - 'traefik.http.routers.m3u8-proxy.tls.certresolver=le'
+      - 'traefik.http.routers.m3u8-proxy-http.rule=Host(`m3u8.animehi-api.site`)'
+      - 'traefik.http.routers.m3u8-proxy-http.entrypoints=web'
+      - 'traefik.http.routers.m3u8-proxy-http.middlewares=redirect-to-https'
       - 'traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https'
 
 networks:
